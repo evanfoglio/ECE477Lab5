@@ -4,38 +4,34 @@
 #include <unistd.h>
 void gpioInit();
 
-//Returns 1 if 1 pin if pin A is pressed, 2 if pin B is pressed, 3 for both
-//0 for neither
-int read_pins(int pin_a, int pin_b);
-
 void millisleep();
 
 int main(int argc, char*argv[])
 {
-	int pin = 0;
-	double time = 0;
-	double curr_time = 0;
+	int pin = 1;
+//	double time = 0;
+//	double curr_time = 0;
 	double hz = 0;
+	double time_high = 0;
+	double time_low = 0;
 	//Sets up wiring Pi
 	gpioInit();
 	
 	while(1){
-		
-		if(digitalRead(pin) == 1){
-			curr_time = time;
+			time_high = 0;
+			time_low = 0;
 			while(digitalRead(pin) == 1){
-				usleep(1);
-				time++;
+				usleep(100);
+				time_high++;
 			}
 			while(digitalRead(pin) == 0){
-				usleep(1);
-				time++;
+				usleep(100);
+				time_low++;
 			}
-			hz = 1 / ((time - curr_time) * .000001); 
-			printf("Hz: %lf\n %lf\n %lf\n", hz, time, curr_time);
-			usleep(1);
-			time++;
-		}
+
+			hz = 1 / ((time_high + time_low) * 0.0001);
+			hz = hz * .58; 
+			printf("Hz: %lf\n", hz);
 	}
 }
 //Intialize GPIO pins being used
