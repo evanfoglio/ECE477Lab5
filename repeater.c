@@ -5,14 +5,15 @@
 #include <math.h>
 #include <avr/sleep.h>
 
-
 void initialize();
 void writeOutput();
 int readInput();
 
 int main(){
+	//Set pin 4 to output and pin 5 to input
 	initialize();
 	while(1)
+		//WRite whatever the value is being read from pin 5 into port 4
 		writeOutput(readInput());
 
 
