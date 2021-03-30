@@ -77,8 +77,8 @@ void gpioInit()
         int gpioOut = 2; //pin 13
         wiringPiSetup();
         //input
-	pinMode(gpioIn[i], INPUT);
-        pullUpDnControl(gpioIn[i], PUD_UP);
+	pinMode(gpioIn, INPUT);
+        pullUpDnControl(gpioIn, PUD_UP);
 	
 	//output
         pinMode(gpioOut, OUTPUT) ;
