@@ -8,7 +8,7 @@ void millisleep();
 
 int main(int argc, char*argv[])
 {
-	int pin = 1;
+	int pin = 0;
 //	double time = 0;
 //	double curr_time = 0;
 	double hz = 0;
