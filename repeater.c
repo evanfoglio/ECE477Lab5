@@ -24,7 +24,7 @@ void initialize(){
 	DDRC |= ~(1<<PC5);
 }
 int readInput(){
-	return (PINC & (1 << PC5) >> PC5);
+	return ((PINC & (1 << PC5)) >> PC5);
 }
 
 void writeOutput(int value){
