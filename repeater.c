@@ -28,7 +28,10 @@ int readInput(){
 }
 
 void writeOutput(int value){
-	PORTB |= (value << PC4);
-	PORTB &= (value << PC4);
+	if(value == 1){
+		PORTB |= (1 << PC4);
+	} else {
+		PORTB &= ~(1 << PC4);
+	}
 	return;
 }
