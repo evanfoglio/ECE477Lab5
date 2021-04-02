@@ -17,8 +17,7 @@ int main()
 	update_clock_speed();  //adjust OSCCAL
 	init_pwm();            //set up hardware PWM
 	while(1){
-		//writeOutput(readInput());
-		writeOutput(1);
+		writeOutput(readInput());
 	}
 }
 
