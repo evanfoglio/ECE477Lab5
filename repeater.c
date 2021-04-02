@@ -1,13 +1,3 @@
-
-
-
-
-void initialize();
-void writeOutput();
-int readInput();
-
-
-
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <avr/eeprom.h>
@@ -15,6 +5,9 @@ int readInput();
 #include <math.h>
 #include <avr/sleep.h>
 
+void initialize();
+void writeOutput();
+int readInput();
 void init_pwm(void);
 void update_clock_speed(void);
 
@@ -59,7 +52,7 @@ void init_pwm(void)
 
 void initialize(){
 	DDRC &= ~(1<<PC5);
-	DDRC |= (1<<PC5);
+	DDRC |= (1<<PC4);
 }
 int readInput(){
 	return ((PINC & (1 << PC5)) >> PC5);
