@@ -60,9 +60,9 @@ int readInput(){
 
 void writeOutput(int value){
 	if(value == 1){
-		PORTB |= (1 << PC4);
+		PORTC |= (1 << PC4);
 	} else {
-		PORTB &= ~(1 << PC4);
+		PORTC &= ~(1 << PC4);
 	}
 	return;
 }
