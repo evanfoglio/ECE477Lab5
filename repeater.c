@@ -21,7 +21,7 @@ int main(){
 
 void initialize(){
 	DDRC &= ~(1<<PC5);
-	DDRC |= ~(1<<PC5);
+	DDRC |= (1<<PC5);
 }
 int readInput(){
 	return ((PINC & (1 << PC5)) >> PC5);
