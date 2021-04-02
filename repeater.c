@@ -24,11 +24,14 @@ void initialize(){
 	DDRC |= ~(1<<PC5);
 }
 int readInput(){
-	return (PINC & (1 << PC5) >> PC5);
+	return ((PINC & (1 << PC5)) >> PC5);
 }
 
 void writeOutput(int value){
-	PORTB |= (value << PC4);
-	PORTB &= (value << PC4);
+	if(value == 1){
+		PORTB |= (1 << PC4);
+	} else {
+		PORTB &= ~(1 << PC4);
+	}
 	return;
 }
