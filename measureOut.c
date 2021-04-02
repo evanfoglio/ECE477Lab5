@@ -59,6 +59,7 @@ int main(int argc, char*argv[])
 							digitalWrite(gpioOut, LOW);
 						}
 					}
+				printf("Hz: %lf\n", average);//debug
 				for(int i = 0; i < 10; i++)
                                         hz_data[i] = 0;
 				num_cycle = 0;
