@@ -16,8 +16,7 @@ int main(int argc, char*argv[])
 	double average;
 	int num_cycle = 0;
 	//Sets up wiring Pi
-	gpioInit();
-	
+	gpioInit();	
 	while(1){	
 			time_high = 0;
 			time_low = 0;
@@ -50,7 +49,6 @@ int main(int argc, char*argv[])
                                         hz_data[i] = 0;
 				num_cycle = 0;
 				average = 0;
-
 			}
 	}
 }
