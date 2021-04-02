@@ -12,7 +12,7 @@ int main(int argc, char*argv[])
 	double hz = 0;
 	double time_high = 0;
 	double time_low = 0;
-	double hz_data[10] = {0};
+	double hz_data[1000] = {0};
 	double average;
 	int num_cycle = 0;
 	//Sets up wiring Pi
@@ -35,27 +35,23 @@ int main(int argc, char*argv[])
 			hz_data[num_cycle] = hz;
 			num_cycle++;
 
-			if(num_cycle == 10){
+			if(num_cycle == 1000){
 
-				for(int i = 0; i < 10; i++)
+				for(int i = 0; i < 1000; i++)
 					average += hz_data[i];
-				average /= 10;				
+				average /= 1000;				
 				if(average > 100.5)
 					printf("Too Fast! Hz: %lf\n", average);
 				else if(average < 99.5)
 					printf("Too Slow! Hz: %lf\n", average);
 				else if((average > 99.5) && (average < 100.5))
 					printf("Just Right! Hz: %lf\n", average);
-				for(int i = 0; i < 10; i++)
+				for(int i = 0; i < 1000; i++)
                                         hz_data[i] = 0;
 				num_cycle = 0;
 				average = 0;
 
 			}
-			
-
-
-			//printf("Hz: %lf\n", hz);
 	}
 }
 //Intialize GPIO pins being used
