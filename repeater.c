@@ -13,10 +13,11 @@ void update_clock_speed(void);
 
 int main()
 {
-	initialize();
+	initialize(); //Set pin 5 as input and pin 4 as output
 	update_clock_speed();  //adjust OSCCAL
 	init_pwm();            //set up hardware PWM
 	while(1){
+		//Write value of pin 4 to pin 5 of c
 		writeOutput(readInput());
 	}
 }
@@ -50,14 +51,18 @@ void init_pwm(void)
 }
 
 
+//Set pin 5 to input and 4 from output
 void initialize(){
 	DDRC &= ~(1<<PC5);
 	DDRC |= (1<<PC4);
 }
+
+//Read 1 or 0 from pinc5
 int readInput(){
 	return ((PINC & (1 << PC5)) >> PC5);
 }
 
+//Write value to pinC4
 void writeOutput(int value){
 	if(value == 1){
 		PORTC |= (1 << PC4);
